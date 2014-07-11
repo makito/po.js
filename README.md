@@ -3,6 +3,11 @@ po.js
 
 Super-simple gettext translation in pure JS
 
+Advantages
+=====
+1. Lightweight: ~0.5KB
+2. No need in 3d-party dependencies like jQuery, Prototype etc.
+
 Usage
 =====
 1. Create JSON file from PO and store it on your server in public folder. I suggest you to use this converter - https://localise.biz/free/converter/po-to-json
@@ -20,5 +25,5 @@ pojs._('Hello world');
 ```
 6. Simple sprintf emulation:
 ```
-pojs._('My name is %d, and I am %d years old', ['Sasha', 24]);
+pojs._('My name is %s, and I am %s years old', ['Sasha', 24]);
 ```
