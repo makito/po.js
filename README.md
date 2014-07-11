@@ -28,3 +28,9 @@ pojs._('Hello world');
 ```
 pojs._('My name is %s, and I am %s years old', ['Sasha', 24]);
 ```
+7. If JSON is not cached it can take some time for JSON loading. So you should wrap all your pojs._() calls:
+```
+pojs.ready(function() {
+    pojs._('Hello world');
+});
+```
