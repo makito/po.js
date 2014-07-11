@@ -7,6 +7,7 @@ Advantages
 =====
 1. Lightweight: ~0.5KB
 2. No need in 3d-party dependencies like jQuery, Prototype etc.
+3. JSON is caching in localStorage. To reset cache simple add ?1 to json link (yeah, old-school).
 
 Usage
 =====
