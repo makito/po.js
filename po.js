@@ -1,5 +1,6 @@
 pojs = {
     _l: null,
+    _r: false,
     _p: {},
     init: function(l) {
         this._l = l;
@@ -14,21 +15,42 @@ pojs = {
         }
         return t;
     },
+    ready: function(cb) {
+        var _t = this, i = setInterval(function() {
+            if (_t._r) {
+                cb();
+                clearInterval(i);
+            }
+        }, 10);
+    },
     _load: function() {
-        var _t = this, x;
-        if (this._l) {
+        var _t = this, x, lsa = 'localStorage' in window && window['localStorage'] !== null, cache = null;
+        if (_t._l) {
+            if (lsa) {
+                cache = localStorage.getItem('pojs_' + _t._l);
+                if (cache) {
+                    _t._p = JSON.parse(cache);
+                    _t._r = true;
+                    return;
+                }
+            }
+
             x = new XMLHttpRequest();
             x.onreadystatechange = function() {
                 if (x.readyState === 4) {
                     if (x.status === 200) {
+                        localStorage.setItem('pojs_' + _t._l, x.responseText);
                         _t._p = JSON.parse(x.responseText);
                     } else {
                         console.error('Can not load JSON from ' + _t._l);
                     }
+                    _t._r = true;
                 }
             };
             x.open('GET', this._l, true);
             x.send();
+        } else {
+            _t._r = true;
         }
     }
 };
