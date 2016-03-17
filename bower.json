@@ -1,0 +1,21 @@
+{
+  "name": "po.js",
+  "main": "po.min.js",
+  "homepage": "https://github.com/makito/po.js",
+  "authors": [
+    "Ivan Orekhov <makito82@gmail.com>"
+  ],
+  "description": "Super-simple gettext translation in pure JS",
+  "moduleType": [],
+  "keywords": [
+    "po.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
